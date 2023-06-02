@@ -1,17 +1,19 @@
 from ff_draw.gui.default_style import text_tip
-from .i18n import *
 from raid_helper.utils import *
 from pprint import pprint
+import imgui
+from .i18n import *
 
 
 def tab_code_debug(self):
     code = self.code_debug_code
 
     changed, code = imgui.input_text_multiline("##codeEdit", code, width=-30, height=-100)
-    if changed: self.code_debug_code = code
+    if changed:
+        self.code_debug_code = code
 
     imgui.new_line()
-    imgui.begin_child("##", width=-150)
+    imgui.begin_child("##child123", width=-150)
     text_tip(i18n(Code_tip))
     imgui.end_child()
 
